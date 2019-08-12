@@ -1,0 +1,9 @@
+platform :ios, '11.0'
+use_frameworks!
+
+target 'ExampleRiderApp' do
+  pod 'RideOsRider', :path => '../../../RideOsRider'
+  pod 'RideOsApi', :path => '../../../../public/rideos-api-ios'
+  pod 'RideOsGoogleMaps', :path => '../../../RideOsGoogleMaps'
+  pod 'RideOsCommon', :path => '../../../RideOsCommon'
+end

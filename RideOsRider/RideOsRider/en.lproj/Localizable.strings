@@ -1,0 +1,113 @@
+/* Number of stops before your pickup text */
+"ai.rideos.rider.on-trip.driving-to-pickup.header.multiple-stops-prefix" = " stops before yours - ";
+
+/* One stop before your pickup text */
+"ai.rideos.rider.on-trip.driving-to-pickup.header.one-stop-prefix" = "1 stop before yours - ";
+
+/* Are you sure string */
+"ai.rideos.rider.cancel-trip-alert.message" = "Are you sure?";
+
+/* Automatic display name */
+"ai.rideos.rider.vehicle-selection.automatic-display-name" = "Automatic";
+
+/* Cancel trip string */
+"ai.rideos.rider.cancel-trip-alert.title" = "Cancel Trip";
+
+/* Edit pickup header text */
+"ai.rideos.rider.on-trip.edit-pickup.header" = "Set your pickup spot";
+
+/* Dropoff confirmation button text */
+"ai.rideos.rider.confirm-dropoff.button-title" = "Confirm Drop-off";
+
+/* Pickup confirmation button text */
+"ai.rideos.rider.on-trip.edit-pickup.button" = "Confirm Pickup";
+
+/* Pickup confirmation button text */
+"ai.rideos.rider.confirm-pickup.button-title" = "Confirm Pickup";
+
+/* Dropoff confirmation header text */
+"ai.rideos.rider.confirm-dropoff.header" = "Confirm your drop-off spot";
+
+/* Pickup confirmation header text */
+"ai.rideos.rider.confirm-pickup.header" = "Confirm your pickup spot";
+
+/* Current location string on location search view */
+"ai.rideos.rider.location-search.current-location-option" = "Current location";
+
+/* Done button title */
+"ai.rideos.rider.location-search.done-button-title" = "Done";
+
+/* Dropoff title label string */
+"ai.rideos.rider.dropoff-label" = "DROP-OFF";
+
+/* Waiting for assignment dialog header text */
+"ai.rideos.rider.requesting-trip.header" = "Finding your ride...";
+
+/* Loading route action view title */
+"ai.rideos.rider.confirm-trip.loading-route-header" = "Loading Route";
+
+/* No string */
+"ai.rideos.rider.cancel-trip-alert.action.no" = "No";
+
+/* Picking you up header text */
+"ai.rideos.rider.on-trip.driving-to-pickup.header.eta" = "Picking you up in ";
+
+/* Pickup title label string */
+"ai.rideos.rider.pickup-label" = "PICKUP";
+
+/* Request ride button text */
+"ai.rideos.rider.confirm-trip.request-ride-button-title" = "Request Ride";
+
+/* Select a vehicle dialog header text */
+"ai.rideos.rider.vehicle-selection.header" = "Select a vehicle";
+
+/* Select vehicle button text */
+"ai.rideos.rider.vehicle-selection.button-title" = "Select Vehicle";
+
+/* Set dropoff on map button text */
+"ai.rideos.rider.set-dropoff.button-title" = "Set Drop-off";
+
+/* Set dropoff on map header text */
+"ai.rideos.rider.set-dropoff.header" = "Set your drop-off spot";
+
+/* Set on map string on location search view */
+"ai.rideos.rider.location-search.set-on-map-option" = "Set on map";
+
+/* Set pickup on map button text */
+"ai.rideos.rider.set-pickup.button-title" = "Set Pickup";
+
+/* Set pickup on map header text */
+"ai.rideos.rider.set-pickup.header" = "Set your pickup spot";
+
+/* Trip cancellation dialog title */
+"ai.rideos.rider.trip-cancelled-alert.title" = "Trip Canceled";
+
+/* Trip cancellation dialog OK action */
+"ai.rideos.rider.trip-cancelled-alert.action.ok" = "Okay";
+
+/* Unknown location string */
+"ai.rideos.rider.confirm-location.unknown-fixed-location-name" = "Unknown Location";
+
+/* Updating your pickup location */
+"ai.rideos.rider.on-trip.updating-pickup.header" = "Updating your pickup location";
+
+/* Text in the start screen's text box */
+"ai.rideos.rider.start-screen.button-title" = "Where are you going?";
+
+/* Cancel trip string */
+"ai.rideos.rider.cancel-trip-alert.action.yes" = "Yes, cancel";
+
+/* You will arrive by header text */
+"ai.rideos.rider.on-trip.driving-to-dropoff.eta-prefix" = "You will arrive by ";
+
+/* Trip cancellation dialog text */
+"ai.rideos.rider.trip-cancelled-alert.message" = "Your request has been canceled. This may be due to safety precautions. Please request a new ride from a different location.";
+
+/* Waiting for pickup dialog header text */
+"ai.rideos.rider.on-trip.waiting-for-pickup.header" = "Your ride has arrived!";
+
+/* Seat selection: Number of seats prompt */
+"ai.rideos.rider.confirm-seats.label" = "How many riders?";
+
+/* Seat selection: Action button title */
+"ai.rideos.rider.confirm-seats.button-title" = "Confirm";

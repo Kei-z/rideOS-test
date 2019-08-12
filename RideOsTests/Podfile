@@ -1,0 +1,43 @@
+platform :ios, '11.0'
+use_frameworks!
+
+pod 'SwiftFormat/CLI', '0.40'
+pod 'SwiftLint', '0.32.0'
+
+def ride_os_common
+  pod 'RideOsCommon', :path => '../RideOsCommon'
+end
+
+def rx_test
+  pod 'RxTest', '4.4.1'
+end
+
+target 'RideOsTestHelpers' do
+  ride_os_common
+  rx_test
+end
+
+target 'RideOsCommonTests' do
+  ride_os_common
+  rx_test
+end
+
+target 'RideOsRiderTests' do
+  pod 'RideOsRider', :path => '../RideOsRider'
+  rx_test
+end
+
+target 'RideOsDriverTests' do
+  pod 'RideOsDriver', :path => '../RideOsDriver'
+  rx_test
+end
+
+target 'RideOsHereMapsTests' do
+  pod 'RideOsHereMaps', :path => '../RideOsHereMaps'
+  rx_test
+end
+
+target 'RideOsGoogleMapsTests' do
+  pod 'RideOsGoogleMaps', :path => '../RideOsGoogleMaps'
+  rx_test
+end

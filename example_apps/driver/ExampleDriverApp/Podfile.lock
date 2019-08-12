@@ -1,0 +1,248 @@
+PODS:
+  - "!ProtoCompiler (3.5.0)":
+    - Protobuf (~> 3.0)
+  - "!ProtoCompiler-gRPCPlugin (1.13.0)":
+    - "!ProtoCompiler (= 3.5.0)"
+    - gRPC-ProtoRPC (= 1.13.0)
+  - Auth0 (1.16.1):
+    - SimpleKeychain
+  - BoringSSL (10.0.6):
+    - BoringSSL/Implementation (= 10.0.6)
+    - BoringSSL/Interface (= 10.0.6)
+  - BoringSSL/Implementation (10.0.6):
+    - BoringSSL/Interface (= 10.0.6)
+  - BoringSSL/Interface (10.0.6)
+  - Eureka (5.0.0)
+  - GoogleMaps (3.3.0):
+    - GoogleMaps/Maps (= 3.3.0)
+  - GoogleMaps/Base (3.3.0)
+  - GoogleMaps/Maps (3.3.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.3.0):
+    - GoogleMaps/Base (= 3.3.0)
+  - gRPC (1.13.0):
+    - gRPC-RxLibrary (= 1.13.0)
+    - gRPC/Main (= 1.13.0)
+  - gRPC-Core (1.13.0):
+    - gRPC-Core/Implementation (= 1.13.0)
+    - gRPC-Core/Interface (= 1.13.0)
+  - gRPC-Core/Implementation (1.13.0):
+    - BoringSSL (~> 10.0)
+    - gRPC-Core/Interface (= 1.13.0)
+    - nanopb (~> 0.3)
+  - gRPC-Core/Interface (1.13.0)
+  - gRPC-ProtoRPC (1.13.0):
+    - gRPC-ProtoRPC/Main (= 1.13.0)
+  - gRPC-ProtoRPC/Main (1.13.0):
+    - gRPC (= 1.13.0)
+    - gRPC-RxLibrary (= 1.13.0)
+    - Protobuf (~> 3.0)
+  - gRPC-RxLibrary (1.13.0)
+  - gRPC/Main (1.13.0):
+    - gRPC-Core (= 1.13.0)
+    - gRPC-RxLibrary (= 1.13.0)
+  - JWTDecode (2.3.0)
+  - Lock (2.11.0):
+    - Auth0 (~> 1.13)
+    - Lock/Classic (= 2.11.0)
+  - Lock/Classic (2.11.0):
+    - Auth0 (~> 1.13)
+  - Mapbox-iOS-SDK (5.2.0)
+  - MapboxCoreNavigation (0.36.0):
+    - MapboxDirections.swift (~> 0.30.0)
+    - MapboxMobileEvents (~> 0.9.5)
+    - MapboxNavigationNative (~> 6.2.1)
+    - Turf (~> 0.3.0)
+  - MapboxDirections.swift (0.30.0):
+    - Polyline (~> 4.2)
+  - MapboxMobileEvents (0.9.5)
+  - MapboxNavigation (0.36.0):
+    - Mapbox-iOS-SDK (~> 5.1)
+    - MapboxCoreNavigation (= 0.36.0)
+    - MapboxSpeech (~> 0.1.0)
+    - Solar (~> 2.1)
+  - MapboxNavigationNative (6.2.1)
+  - MapboxSpeech (0.1.1)
+  - MarqueeLabel (4.0.0)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - NicoProgress (0.1.5)
+  - NotificationBannerSwift (2.5.1):
+    - MarqueeLabel (~> 4.0.0)
+    - SnapKit (~> 5.0.0)
+  - Polyline (4.2.1)
+  - Protobuf (3.9.0)
+  - ReachabilitySwift (4.3.1)
+  - RideOsApi (0.1.0):
+    - "!ProtoCompiler-gRPCPlugin (~> 1.13.0)"
+    - RideOsApi/Messages (= 0.1.0)
+    - RideOsApi/Services (= 0.1.0)
+  - RideOsApi/Messages (0.1.0):
+    - "!ProtoCompiler-gRPCPlugin (~> 1.13.0)"
+    - Protobuf
+  - RideOsApi/Services (0.1.0):
+    - "!ProtoCompiler-gRPCPlugin (~> 1.13.0)"
+    - gRPC-ProtoRPC
+    - RideOsApi/Messages
+  - RideOsCommon (0.1.0):
+    - Auth0 (~> 1.15)
+    - Eureka (~> 5.0)
+    - JWTDecode (~> 2.1)
+    - Lock (~> 2.10)
+    - NicoProgress (~> 0.1)
+    - NotificationBannerSwift (~> 2.1)
+    - Polyline (~> 4.2)
+    - RideOsApi
+    - RxCocoa (~> 4.4)
+    - RxReachability (~> 0.1)
+    - RxSwift (~> 4.4)
+    - RxSwiftExt (~> 3.4)
+    - SwiftSimplify (~> 0.2)
+  - RideOsDriver (0.1.0):
+    - Eureka (~> 5.0)
+    - MapboxNavigation (~> 0.34)
+    - Polyline (~> 4.2)
+    - RideOsApi
+    - RideOsCommon
+    - RxCocoa (~> 4.4)
+    - RxOptional (~> 3.6)
+    - RxSwift (~> 4.4)
+    - RxSwiftExt (~> 3.4)
+    - SideMenu (~> 5.0)
+  - RideOsGoogleMaps (0.1.0):
+    - GoogleMaps (~> 3.2)
+    - GooglePlaces (~> 3.2)
+    - RideOsCommon
+    - RxSwift (~> 4.4)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxOptional (3.6.2):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxReachability (0.1.8):
+    - ReachabilitySwift (~> 4.3.0)
+    - RxCocoa (~> 4)
+    - RxSwift (~> 4)
+  - RxSwift (4.5.0)
+  - RxSwiftExt (3.4.0):
+    - RxSwiftExt/Core (= 3.4.0)
+    - RxSwiftExt/RxCocoa (= 3.4.0)
+  - RxSwiftExt/Core (3.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwiftExt/RxCocoa (3.4.0):
+    - RxCocoa (~> 4.0)
+    - RxSwiftExt/Core
+  - SideMenu (5.0.3)
+  - SimpleKeychain (0.9.0)
+  - SnapKit (5.0.0)
+  - Solar (2.1.0)
+  - SwiftSimplify (0.2.0)
+  - Turf (0.3.0)
+
+DEPENDENCIES:
+  - RideOsApi (from `../../../../public/rideos-api-ios`)
+  - RideOsCommon (from `../../../RideOsCommon`)
+  - RideOsDriver (from `../../../RideOsDriver`)
+  - RideOsGoogleMaps (from `../../../RideOsGoogleMaps`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - "!ProtoCompiler"
+    - "!ProtoCompiler-gRPCPlugin"
+    - Auth0
+    - BoringSSL
+    - Eureka
+    - GoogleMaps
+    - GooglePlaces
+    - gRPC
+    - gRPC-Core
+    - gRPC-ProtoRPC
+    - gRPC-RxLibrary
+    - JWTDecode
+    - Lock
+    - Mapbox-iOS-SDK
+    - MapboxCoreNavigation
+    - MapboxDirections.swift
+    - MapboxMobileEvents
+    - MapboxNavigation
+    - MapboxNavigationNative
+    - MapboxSpeech
+    - MarqueeLabel
+    - nanopb
+    - NicoProgress
+    - NotificationBannerSwift
+    - Polyline
+    - Protobuf
+    - ReachabilitySwift
+    - RxCocoa
+    - RxOptional
+    - RxReachability
+    - RxSwift
+    - RxSwiftExt
+    - SideMenu
+    - SimpleKeychain
+    - SnapKit
+    - Solar
+    - SwiftSimplify
+    - Turf
+
+EXTERNAL SOURCES:
+  RideOsApi:
+    :path: "../../../../public/rideos-api-ios"
+  RideOsCommon:
+    :path: "../../../RideOsCommon"
+  RideOsDriver:
+    :path: "../../../RideOsDriver"
+  RideOsGoogleMaps:
+    :path: "../../../RideOsGoogleMaps"
+
+SPEC CHECKSUMS:
+  "!ProtoCompiler": 3e9dc8340c8f1bbab40aa0f5acb965a4be02f849
+  "!ProtoCompiler-gRPCPlugin": ecc935069530285c08fc5d2df3ab73e466352f4a
+  Auth0: dd9125f16147639d8e8c58d338402fb085b4e125
+  BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
+  Eureka: 0f64f477ec8ef6201c6fec143d60ff5c201cf654
+  GoogleMaps: cfee83da305b9aaeccf92c24ac79df11c3003492
+  GooglePlaces: 1e2a87bd9efee9623ee65d44ecc35ebfecd7b13c
+  gRPC: 81b990caa01d7c32605d300c2ffd1b5ba0ef9e49
+  gRPC-Core: a56b086a8ef5ced6f6ba5be5bc0a63fca185015a
+  gRPC-ProtoRPC: 842797fbe05dfcf891afb4a5048e5ccf5f06ef86
+  gRPC-RxLibrary: fa6852f98d6ec0b73c0ec2f6406c26943099d501
+  JWTDecode: fb77675c8049c1a7e9433c7cf448c3ce33ee4ac7
+  Lock: 2d71eed697ac41a3c79d95f57f7a1ec2294c83a7
+  Mapbox-iOS-SDK: 3e095b305126d52ba166fe215d847b15b6fbee63
+  MapboxCoreNavigation: 41f550b9e22bf92c0adff2784881441d363ffb1c
+  MapboxDirections.swift: 1c6df988c24b753888ebd9976d7c98632501a413
+  MapboxMobileEvents: f6c21b2e59066c5c7093585de7c15adae3b63da0
+  MapboxNavigation: 76b39a959d8213b81a88267f086393ab4166d098
+  MapboxNavigationNative: 11dc22140f4698d3f26989f2b6379dc81ef0d4c1
+  MapboxSpeech: 59b3984d3f433a443d24acf53097f918c5cc70f9
+  MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  NicoProgress: ba7bc224583e5a4c637a3397d256187fe72e139f
+  NotificationBannerSwift: e55dd801b0d78f1a7bacb10d722a935ec95f94a3
+  Polyline: 0e9890790292741c8186201a536b6bb6a78d02dd
+  Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
+  RideOsApi: e03245cd302cff38cc6b5e39f007b20328885251
+  RideOsCommon: 58d788eef87afbd271e318bd9b304ad68ed09a80
+  RideOsDriver: 6ef62ea40a51eb56df35d939b114ec4f68b28157
+  RideOsGoogleMaps: 34eda05836f5469684f8e6c2ee9d53d8339d2a38
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
+  RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
+  SimpleKeychain: 3be49072fd2d82de8fa83d847ef1e548622f8fc5
+  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
+  SwiftSimplify: 374ead1c360c6e236539543d6ce5b3abda011080
+  Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
+
+PODFILE CHECKSUM: 947ce5e2977106e4bc00ade903ad63907f18685b
+
+COCOAPODS: 1.7.5

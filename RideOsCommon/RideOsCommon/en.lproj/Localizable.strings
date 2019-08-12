@@ -1,0 +1,69 @@
+/* Miles label */
+"ai.rideos.common.miles.format" = "%.1f mi";
+
+/* Minutes label */
+"ai.rideos.common.minutes.format" = "%d min";
+
+/* Active fleet ID section title */
+"ai.rideos.common.settings.developer.active-fleet-id-section-title" = "ACTIVE FLEET ID";
+
+/* Automatic fleet display name */
+"ai.rideos.common.automatic-fleet-display-name" = "Automatic";
+
+/* Default cancel button title */
+"ai.rideos.common.dialog.default-cancel-button-title" = "Cancel";
+
+/* Developer settings string */
+"ai.rideos.common.settings.developer" = "Developer Settings";
+
+/* Development environment name */
+"ai.rideos.common.settings.developer.environment.development" = "Development";
+
+/* Edit profile string */
+"ai.rideos.common.settings.developer.edit-profile" = "Edit Profile";
+
+/* Email address string */
+"ai.rideos.common.settings.account.email-address" = "EMAIL ADDRESS";
+
+/* Select an environment string */
+"ai.rideos.common.settings.developer.environment-title" = "Environment";
+
+/* Environment string */
+"ai.rideos.common.settings.developer.environment-section" = "ENVIRONMENT";
+
+/* Fleet label */
+"ai.rideos.common.settings.developer.fleet-title" = "Fleet";
+
+/* Fleet selection section title */
+"ai.rideos.common.settings.developer.fleet-section" = "FLEET SELECTION";
+
+/* Restart app text */
+"ai.rideos.common.settings.developer.app-restart" = "NOTE: You must restart the app for developer settings changes to take effect";
+
+/* Error alert OK button title */
+"ai.rideos.common.uiviewcontroller.errors.ok" = "OK";
+
+/* Active fleet selector title */
+"ai.rideos.common.settings.developer.fleet-selector" = "Pick a fleet for dispatch";
+
+/* Preferred name string */
+"ai.rideos.common.settings.account.preferred-name" = "PREFERRED NAME";
+
+/* Production environment name */
+"ai.rideos.common.settings.developer.environment.production" = "Production";
+
+/* Sign out button title */
+"ai.rideos.common.settings.signout" = "Sign Out";
+
+/* Staging environment name */
+"ai.rideos.common.settings.developer.environment.staging" = "Staging";
+
+/* Contact failed alert title */
+"ai.rideos.common.url-launcher.failure" = "Unable to Contact Vehicle";
+
+/* Contact failed alert message */
+"ai.rideos.common.url-launcher.unknown-scheme.format" = "Unable to contact vehicle via unknown method \"%@\". You might need to install the relevant app.";
+
+/* Unable to reach the network text */
+"ai.rideos.common.low-connectivity.message" = "Unable to reach the network";
+

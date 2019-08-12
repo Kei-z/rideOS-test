@@ -1,0 +1,18 @@
+disabled_rules:
+  - trailing_comma
+  - type_name
+
+included:
+  - ../RideOsCommon
+  - ../RideOsDriver
+  - ../RideOsRider
+  - ../RideOsGoogleMaps
+  - ../RideOsHereMaps
+
+identifier_name:
+  max_length:
+    warning: 50
+
+type_name:
+  max_length:
+    warning: 50

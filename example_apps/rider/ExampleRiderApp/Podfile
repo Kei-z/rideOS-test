@@ -2,8 +2,8 @@ platform :ios, '11.0'
 use_frameworks!
 
 target 'ExampleRiderApp' do
-  pod 'RideOsRider', :path => '../../../RideOsRider'
-  pod 'RideOsApi', :path => '../../../../public/rideos-api-ios'
-  pod 'RideOsGoogleMaps', :path => '../../../RideOsGoogleMaps'
-  pod 'RideOsCommon', :path => '../../../RideOsCommon'
+  pod 'RideOsRider',  '~> 0.1'
+  pod 'RideOsApi', '~> 0.1'
+  pod 'RideOsGoogleMaps', '~> 0.1'
+  pod 'RideOsCommon', '~> 0.1'
 end

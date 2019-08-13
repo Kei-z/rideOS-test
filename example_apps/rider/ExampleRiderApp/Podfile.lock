@@ -79,7 +79,7 @@ PODS:
     - NicoProgress (~> 0.1)
     - NotificationBannerSwift (~> 2.1)
     - Polyline (~> 4.2)
-    - RideOsApi
+    - RideOsApi (~> 0.1)
     - RxCocoa (~> 4.4)
     - RxReachability (~> 0.1)
     - RxSwift (~> 4.4)
@@ -91,7 +91,7 @@ PODS:
     - RideOsCommon
     - RxSwift (~> 4.4)
   - RideOsRider (0.1.0):
-    - RideOsApi
+    - RideOsApi (~> 0.1)
     - RideOsCommon
     - RxCocoa (~> 4.4)
     - RxOptional (~> 3.6)
@@ -118,14 +118,14 @@ PODS:
     - RxSwiftExt/Core
   - SideMenu (5.0.3)
   - SimpleKeychain (0.9.0)
-  - SnapKit (5.0.0)
+  - SnapKit (5.0.1)
   - SwiftSimplify (0.2.0)
 
 DEPENDENCIES:
-  - RideOsApi (from `../../../../public/rideos-api-ios`)
-  - RideOsCommon (from `../../../RideOsCommon`)
-  - RideOsGoogleMaps (from `../../../RideOsGoogleMaps`)
-  - RideOsRider (from `../../../RideOsRider`)
+  - RideOsApi (~> 0.1)
+  - RideOsCommon (~> 0.1)
+  - RideOsGoogleMaps (~> 0.1)
+  - RideOsRider (~> 0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -149,6 +149,10 @@ SPEC REPOS:
     - Polyline
     - Protobuf
     - ReachabilitySwift
+    - RideOsApi
+    - RideOsCommon
+    - RideOsGoogleMaps
+    - RideOsRider
     - RxCocoa
     - RxOptional
     - RxReachability
@@ -158,16 +162,6 @@ SPEC REPOS:
     - SimpleKeychain
     - SnapKit
     - SwiftSimplify
-
-EXTERNAL SOURCES:
-  RideOsApi:
-    :path: "../../../../public/rideos-api-ios"
-  RideOsCommon:
-    :path: "../../../RideOsCommon"
-  RideOsGoogleMaps:
-    :path: "../../../RideOsGoogleMaps"
-  RideOsRider:
-    :path: "../../../RideOsRider"
 
 SPEC CHECKSUMS:
   "!ProtoCompiler": 3e9dc8340c8f1bbab40aa0f5acb965a4be02f849
@@ -190,10 +184,10 @@ SPEC CHECKSUMS:
   Polyline: 0e9890790292741c8186201a536b6bb6a78d02dd
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
-  RideOsApi: e03245cd302cff38cc6b5e39f007b20328885251
-  RideOsCommon: 58d788eef87afbd271e318bd9b304ad68ed09a80
-  RideOsGoogleMaps: 34eda05836f5469684f8e6c2ee9d53d8339d2a38
-  RideOsRider: 274cdec5c175b3690e217ef791cc154469032cb4
+  RideOsApi: dd1cb844305f225557e55b28913fc6d416047fc2
+  RideOsCommon: 46b6283a117e677f95be4e19bed8c1c1f30751e3
+  RideOsGoogleMaps: 3f138eb95175bf0d4a9bb56bbe19cb627b5bfcad
+  RideOsRider: 0014850cc6e6152d4526babb5f69e6cea45cad41
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
@@ -201,9 +195,9 @@ SPEC CHECKSUMS:
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
   SimpleKeychain: 3be49072fd2d82de8fa83d847ef1e548622f8fc5
-  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftSimplify: 374ead1c360c6e236539543d6ce5b3abda011080
 
-PODFILE CHECKSUM: 5cb11dfdcb5b15939cf788e454031aaa42fde0f9
+PODFILE CHECKSUM: 34188213efc2e467528d70342d1ea68cdf5959d0
 
 COCOAPODS: 1.7.5

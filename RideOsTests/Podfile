@@ -5,7 +5,7 @@ pod 'SwiftFormat/CLI', '0.40'
 pod 'SwiftLint', '0.32.0'
 
 def ride_os_common
-  pod 'RideOsCommon', :path => '../'
+  pod 'RideOsCommon'
 end
 
 def rx_test
@@ -23,21 +23,21 @@ target 'RideOsCommonTests' do
 end
 
 target 'RideOsRiderTests' do
-  pod 'RideOsRider', :path => '../'
+  pod 'RideOsRider'
   rx_test
 end
 
 target 'RideOsDriverTests' do
-  pod 'RideOsDriver', :path => '../'
+  pod 'RideOsDriver'
   rx_test
 end
 
 target 'RideOsHereMapsTests' do
-  pod 'RideOsHereMaps', :path => '../'
+  pod 'RideOsHereMaps'
   rx_test
 end
 
 target 'RideOsGoogleMapsTests' do
-  pod 'RideOsGoogleMaps', :path => '../'
+  pod 'RideOsGoogleMaps'
   rx_test
 end

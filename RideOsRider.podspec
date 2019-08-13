@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   
   s.dependency 'RideOsApi', '~> 0.1'
-  s.dependency 'RideOsCommon'
+  s.dependency 'RideOsCommon' '~> 0.1'
   s.dependency 'RxCocoa', '~> 4.4'
   s.dependency 'RxSwift', '~> 4.4'
   s.dependency 'RxSwiftExt', '~> 3.4'

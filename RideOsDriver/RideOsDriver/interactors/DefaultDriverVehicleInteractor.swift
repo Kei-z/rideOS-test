@@ -15,6 +15,7 @@
 
 import CoreLocation
 import Foundation
+import grpc
 import RideOsApi
 import RxSwift
 
@@ -174,6 +175,18 @@ public class DefaultDriverVehicleInteractor: DriverVehicleInteractor {
             return Disposables.create {
                 call.cancel()
             }
+        }
+    }
+
+    public func getVehicleStatus(vehicleId: String) -> Single<VehicleStatus> {
+        return getVehicleState(vehicleId: vehicleId).map {
+            $0.readiness ? VehicleStatus.ready : VehicleStatus.notReady
+        }.catchError {
+            if ($0 as NSError).code == grpc.GRPC_STATUS_NOT_FOUND.rawValue {
+                return Single.just(VehicleStatus.unregistered)
+            }
+
+            return Single.error($0)
         }
     }
 

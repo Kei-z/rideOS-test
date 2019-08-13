@@ -28,12 +28,13 @@ public class DefaultDrivingViewModel: DrivingViewModel {
     public init(finishedDrivingListener: @escaping () -> Void,
                 destination: CLLocationCoordinate2D,
                 initialStep: DrivingViewState.Step = .drivePending,
-                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider()) {
+                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider(),
+                logger: Logger = LoggerDependencyRegistry.instance.logger) {
         self.finishedDrivingListener = finishedDrivingListener
         self.destination = destination
         self.schedulerProvider = schedulerProvider
 
-        stateMachine = StateMachine(schedulerProvider: schedulerProvider, initialState: initialStep)
+        stateMachine = StateMachine(schedulerProvider: schedulerProvider, initialState: initialStep, logger: logger)
     }
 
     public var drivingViewState: Observable<DrivingViewState> {

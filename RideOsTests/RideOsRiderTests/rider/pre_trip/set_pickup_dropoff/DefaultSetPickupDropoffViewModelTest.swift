@@ -37,7 +37,8 @@ class DefaultSetPickupDropoffViewModelTest: ReactiveTestCase {
         viewModelUnderTest = DefaultSetPickupDropoffViewModel(listener: listener,
                                                      initialPickup: initialPickup,
                                                      initialDropoff: initialDropoff,
-                                                     schedulerProvider: TestSchedulerProvider(scheduler: scheduler))
+                                                     schedulerProvider: TestSchedulerProvider(scheduler: scheduler),
+                                                     logger: ConsoleLogger())
         recorder = scheduler.createObserver(SetPickupDropOffDisplayState.self)
         
         viewModelUnderTest.getDisplayState()

@@ -34,7 +34,9 @@ public class DefaultMainViewModel: MainViewModel {
         self.tripInteractor = tripInteractor
         self.schedulerProvider = schedulerProvider
         self.logger = logger
-        stateMachine = StateMachine(schedulerProvider: schedulerProvider, initialState: .startScreen)
+        stateMachine = StateMachine(schedulerProvider: schedulerProvider,
+                                    initialState: .startScreen,
+                                    logger: logger)
         startPollingForCurrentTask(passengerId: userStorageReader.userId)
 
         stateMachine.state()

@@ -6,9 +6,12 @@ import RideOsTestHelpers
 import RxSwift
 
 public class FixedDriverVehicleInteractor: MethodCallRecorder, DriverVehicleInteractor {
+    private let vehicleStatus: VehicleStatus
     private let vehicleState: RideHailCommonsVehicleState
 
-    public init(vehicleState: RideHailCommonsVehicleState = RideHailCommonsVehicleState()) {
+    public init(vehicleStatus: VehicleStatus = .unregistered,
+                vehicleState: RideHailCommonsVehicleState = RideHailCommonsVehicleState()) {
+        self.vehicleStatus = vehicleStatus
         self.vehicleState = vehicleState
     }
 
@@ -32,6 +35,11 @@ public class FixedDriverVehicleInteractor: MethodCallRecorder, DriverVehicleInte
     public func finishSteps(vehicleId _: String, taskId _: String, stepIds _: [String]) -> Completable {
         recordMethodCall(#function)
         return Completable.empty()
+    }
+    
+    public func getVehicleStatus(vehicleId: String) -> Single<VehicleStatus> {
+        recordMethodCall(#function)
+        return Single.just(vehicleStatus)
     }
 
     public func getVehicleState(vehicleId _: String) -> Single<RideHailCommonsVehicleState> {

@@ -15,7 +15,8 @@ class DefaultVehicleUnregisteredViewModelTest: ReactiveTestCase {
 
         viewModelUnderTest = DefaultVehicleUnregisteredViewModel(
             registerVehicleFinishedListener: recordingRegisterVehicleFinishedListener,
-            schedulerProvider: TestSchedulerProvider(scheduler: scheduler)
+            schedulerProvider: TestSchedulerProvider(scheduler: scheduler),
+            logger: ConsoleLogger()
         )
         stateRecorder = scheduler.record(viewModelUnderTest.getVehicleUnregisteredViewState())
 

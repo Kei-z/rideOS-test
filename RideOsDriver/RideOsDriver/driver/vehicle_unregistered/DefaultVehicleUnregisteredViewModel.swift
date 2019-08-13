@@ -29,12 +29,14 @@ public class DefaultVehicleUnregisteredViewModel: VehicleUnregisteredViewModel {
     private let stateMachine: StateMachine<VehicleUnregisteredViewState>
 
     public init(registerVehicleFinishedListener: RegisterVehicleFinishedListener,
-                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider()) {
+                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider(),
+                logger: Logger = LoggerDependencyRegistry.instance.logger) {
         self.registerVehicleFinishedListener = registerVehicleFinishedListener
         self.schedulerProvider = schedulerProvider
 
         stateMachine = StateMachine(schedulerProvider: schedulerProvider,
-                                    initialState: DefaultVehicleUnregisteredViewModel.defaultState)
+                                    initialState: DefaultVehicleUnregisteredViewModel.defaultState,
+                                    logger: logger)
     }
 
     public func getVehicleUnregisteredViewState() -> Observable<VehicleUnregisteredViewState> {

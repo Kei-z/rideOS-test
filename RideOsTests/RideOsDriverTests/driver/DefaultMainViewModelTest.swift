@@ -6,54 +6,91 @@ import RxTest
 class DefaultMainViewModelTest: ReactiveTestCase {
     private var viewModelUnderTest: DefaultMainViewModel!
     private var stateRecorder: TestableObserver<MainViewState>!
-
-    override func setUp() {
+    
+    func setUp(vehicleStatus: VehicleStatus) {
         super.setUp()
-
-        // add vehicle info to the temporary user defaults to bypass vehicle registration requirement
-        let vehicleInfo = VehicleRegistration(name: "name", phoneNumber: "000-000-0000",
-                                                  licensePlate: "ABCD123", riderCapacity: 4)
-        let tempDefaults = TemporaryUserDefaults(stringValues: [CommonUserStorageKeys.userId: "user id"])
-        let writer = UserDefaultsUserStorageWriter(userDefaults: tempDefaults)
-        writer.set(key: DriverSettingsKeys.vehicleInfo, value: vehicleInfo)
-
+        
         viewModelUnderTest = DefaultMainViewModel(
-            userStorageReader: UserDefaultsUserStorageReader(userDefaults: tempDefaults),
-            driverVehicleInteractor: FixedDriverVehicleInteractor(),
-            schedulerProvider: TestSchedulerProvider(scheduler: scheduler)
+            userStorageReader: UserDefaultsUserStorageReader(
+                userDefaults: TemporaryUserDefaults(stringValues: [CommonUserStorageKeys.userId: "a_test_user_id"])
+            ),
+            driverVehicleInteractor: FixedDriverVehicleInteractor(vehicleStatus: vehicleStatus),
+            schedulerProvider: TestSchedulerProvider(scheduler: scheduler),
+            logger: ConsoleLogger()
         )
         stateRecorder = scheduler.record(viewModelUnderTest.getMainViewState())
-
+        
         assertNil(viewModelUnderTest, after: { self.viewModelUnderTest = nil })
     }
-
-    func testViewModelReflectsExpectedInitialState() {
-        XCTAssertEqual(stateRecorder.events, [
-            next(0, .offline),
-        ])
-    }
-
-    func testViewModelCanGoOnlineWhenOffline() {
-        scheduler.scheduleAt(0) { self.viewModelUnderTest.goOnline() }
-
+    
+    func testViewModelReflectsOfflineInitialStateWhenVehicleIsNotReady() {
+        setUp(vehicleStatus: .notReady)
+        
         scheduler.advanceTo(1)
-
+        
         XCTAssertEqual(stateRecorder.events, [
-            next(0, .offline),
-            next(1, .online),
-        ])
+            next(1, .offline),
+            ])
     }
-
+    
+    func testViewModelReflectsOnlineInitialStateWhenVehicleIsReady() {
+        setUp(vehicleStatus: .ready)
+        
+        scheduler.advanceTo(1)
+        
+        XCTAssertEqual(stateRecorder.events, [
+            next(1, .online),
+            ])
+    }
+    
+    func testViewModelReflectsUnregisteredInitialStateWhenVehicleIsUnregistered() {
+        setUp(vehicleStatus: .unregistered)
+        
+        scheduler.advanceTo(1)
+        
+        XCTAssertEqual(stateRecorder.events, [
+            next(1, .vehicleUnregistered),
+            ])
+    }
+    
+    func testViewModelCanGoOnlineWhenOffline() {
+        setUp(vehicleStatus: .notReady)
+        
+        scheduler.scheduleAt(0) { self.viewModelUnderTest.goOnline() }
+        
+        scheduler.advanceTo(2)
+        
+        XCTAssertEqual(stateRecorder.events, [
+            next(1, .offline),
+            next(2, .online),
+            ])
+    }
+    
     func testViewModelCanGoOfflineWhenOnline() {
+        setUp(vehicleStatus: .notReady)
+        
         scheduler.scheduleAt(0) { self.viewModelUnderTest.goOnline() }
         scheduler.scheduleAt(1) { self.viewModelUnderTest.goOffline() }
-
-        scheduler.advanceTo(2)
-
+        
+        scheduler.advanceTo(3)
+        
         XCTAssertEqual(stateRecorder.events, [
-            next(0, .offline),
-            next(1, .online),
+            next(1, .offline),
+            next(2, .online),
+            next(3, .offline),
+            ])
+    }
+    
+    func testViewModelGoesOfflineAfterFinishingVehicleRegistration() {
+        setUp(vehicleStatus: .unregistered)
+        
+        scheduler.scheduleAt(0) { self.viewModelUnderTest.vehicleRegistrationFinished() }
+        
+        scheduler.advanceTo(2)
+        
+        XCTAssertEqual(stateRecorder.events, [
+            next(1, .vehicleUnregistered),
             next(2, .offline),
-        ])
+            ])
     }
 }

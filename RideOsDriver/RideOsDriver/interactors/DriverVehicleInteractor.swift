@@ -23,6 +23,7 @@ public protocol DriverVehicleInteractor {
     func markVehicleReady(vehicleId: String) -> Completable
     func markVehicleNotReady(vehicleId: String) -> Completable
     func finishSteps(vehicleId: String, taskId: String, stepIds: [String]) -> Completable
+    func getVehicleStatus(vehicleId: String) -> Single<VehicleStatus>
     func getVehicleState(vehicleId: String) -> Single<RideHailCommonsVehicleState>
     func updateVehiclePose(
         vehicleId: String,

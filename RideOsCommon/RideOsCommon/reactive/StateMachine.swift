@@ -23,9 +23,13 @@ public class StateMachine<T> {
     private let disposeBag = DisposeBag()
     private let stateTransitionSubject: PublishSubject<AsyncTransition> = PublishSubject()
     private let stateSubject: BehaviorSubject<T>
+    private let logger: Logger
 
-    public init(schedulerProvider: SchedulerProvider, initialState: T) {
+    public init(schedulerProvider: SchedulerProvider,
+                initialState: T,
+                logger: Logger = LoggerDependencyRegistry.instance.logger) {
         stateSubject = BehaviorSubject(value: initialState)
+        self.logger = logger
 
         stateTransitionSubject
             .observeOn(schedulerProvider.computation())
@@ -39,7 +43,7 @@ public class StateMachine<T> {
                 do {
                     return try stateTransitionFunction(currentState)
                 } catch {
-                    logError(error.humanReadableDescription)
+                    logger.logError(error.humanReadableDescription)
                 }
 
                 return Single.just(currentState)
@@ -51,11 +55,11 @@ public class StateMachine<T> {
     }
 
     public func transition(_ stateTransition: @escaping Transition) {
-        stateTransitionSubject.onNext { currentState in
+        stateTransitionSubject.onNext { [logger] currentState in
             do {
                 return try Single.just(stateTransition(currentState))
             } catch {
-                logError(error.humanReadableDescription)
+                logger.logError(error.humanReadableDescription)
             }
 
             return Single.just(currentState)

@@ -23,14 +23,29 @@ public class ApplicationCoordinator: Coordinator {
     private let mapViewController: MapViewController
     private let viewModel: MainViewModel
     private let schedulerProvider: SchedulerProvider
+    private let logger: Logger
+
+    public convenience init(navigationController: UINavigationController,
+                            mapViewController: MapViewController,
+                            schedulerProvider: SchedulerProvider = DefaultSchedulerProvider(),
+                            logger: Logger = LoggerDependencyRegistry.instance.logger) {
+        self.init(navigationController: navigationController,
+                  mapViewController: mapViewController,
+                  viewModel: DefaultMainViewModel(schedulerProvider: schedulerProvider, logger: logger),
+                  schedulerProvider: schedulerProvider,
+                  logger: logger)
+    }
 
     public init(navigationController: UINavigationController,
                 mapViewController: MapViewController,
-                viewModel: MainViewModel = DefaultMainViewModel(),
-                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider()) {
+                viewModel: MainViewModel,
+                schedulerProvider: SchedulerProvider,
+                logger: Logger) {
         self.viewModel = viewModel
         self.mapViewController = mapViewController
         self.schedulerProvider = schedulerProvider
+        self.logger = logger
+
         super.init(navigationController: navigationController)
     }
 
@@ -45,6 +60,8 @@ public class ApplicationCoordinator: Coordinator {
                     self.showOffline()
                 case .online:
                     self.showOnline()
+                default:
+                    self.logger.logError("Unexpected main view state: \(mainViewState)")
                 }
             })
             .disposed(by: disposeBag)

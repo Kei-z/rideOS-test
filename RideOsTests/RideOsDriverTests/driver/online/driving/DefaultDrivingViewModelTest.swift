@@ -1,4 +1,5 @@
 import CoreLocation
+import RideOsCommon
 import RideOsDriver
 import RideOsTestHelpers
 import RxTest
@@ -19,7 +20,8 @@ class DefaultDrivingModelTest: ReactiveTestCase {
         viewModelUnderTest = DefaultDrivingViewModel(finishedDrivingListener: finishedDrivingListener,
                                                      destination: DefaultDrivingModelTest.destination,
                                                      initialStep: step,
-                                                     schedulerProvider: TestSchedulerProvider(scheduler: scheduler))
+                                                     schedulerProvider: TestSchedulerProvider(scheduler: scheduler),
+                                                     logger: ConsoleLogger())
         stateRecorder = scheduler.record(viewModelUnderTest.drivingViewState)
 
         assertNil(viewModelUnderTest, after: { self.viewModelUnderTest = nil })

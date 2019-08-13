@@ -38,7 +38,8 @@ public class DefaultPreTripViewModel: PreTripViewModel {
                 passengerName: Observable<String> = defaultPassengerName(),
                 logger: Logger = LoggerDependencyRegistry.instance.logger) {
         stateMachine = StateMachine(schedulerProvider: schedulerProvider,
-                                    initialState: DefaultPreTripViewModel.defaultPreTripState)
+                                    initialState: DefaultPreTripViewModel.defaultPreTripState,
+                                    logger: logger)
         self.listener = listener
         self.enableSeatCountSelection = enableSeatCountSelection
 

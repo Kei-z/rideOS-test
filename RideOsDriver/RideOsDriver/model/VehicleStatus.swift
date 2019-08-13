@@ -15,9 +15,8 @@
 
 import Foundation
 
-public enum MainViewState: Equatable {
-    case unknown
-    case vehicleUnregistered
-    case offline
-    case online
+public enum VehicleStatus {
+    case ready
+    case notReady
+    case unregistered
 }

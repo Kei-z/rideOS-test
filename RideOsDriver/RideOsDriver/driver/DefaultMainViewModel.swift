@@ -21,23 +21,37 @@ public class DefaultMainViewModel: MainViewModel {
     private let userStorageReader: UserStorageReader
     private let driverVehicleInteractor: DriverVehicleInteractor
     private let stateMachine: StateMachine<MainViewState>
+    private let logger: Logger
 
     public init(userStorageReader: UserStorageReader = UserDefaultsUserStorageReader(),
                 driverVehicleInteractor: DriverVehicleInteractor = DefaultDriverVehicleInteractor(),
-                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider()) {
+                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider(),
+                logger: Logger = LoggerDependencyRegistry.instance.logger) {
         self.userStorageReader = userStorageReader
         self.driverVehicleInteractor = driverVehicleInteractor
+        self.logger = logger
 
-        // TODO: query the backend for vehicle info instead of relying on local storage
-        let hasUserCompletedVehicleRegistration = userStorageReader.get(DriverSettingsKeys.vehicleInfo) == nil
-        let initialState = hasUserCompletedVehicleRegistration ? MainViewState.vehicleUnregistered
-            : MainViewState.offline
-
-        stateMachine = StateMachine(schedulerProvider: schedulerProvider, initialState: initialState)
+        stateMachine = StateMachine(schedulerProvider: schedulerProvider, initialState: .unknown, logger: logger)
     }
 
     public func getMainViewState() -> Observable<MainViewState> {
+        let getStatusDisposable = driverVehicleInteractor.getVehicleStatus(vehicleId: userStorageReader.userId)
+            .asObservable()
+            .logErrorsRetryAndDefault(to: .notReady, logger: logger)
+            .subscribe(onNext: { [stateMachine] in
+                switch $0 {
+                case .unregistered:
+                    stateMachine.transition { _ in .vehicleUnregistered }
+                case .ready:
+                    stateMachine.transition { _ in .online }
+                case .notReady:
+                    stateMachine.transition { _ in .offline }
+                }
+            })
+
         return stateMachine.state()
+            .filter { $0 != .unknown }
+            .do(onDispose: { getStatusDisposable.dispose() })
     }
 }
 

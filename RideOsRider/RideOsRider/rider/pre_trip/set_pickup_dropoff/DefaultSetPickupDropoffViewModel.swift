@@ -28,13 +28,15 @@ public class DefaultSetPickupDropoffViewModel: SetPickupDropoffViewModel {
     public init(listener: SetPickupDropoffListener,
                 initialPickup: PreTripLocation?,
                 initialDropoff: PreTripLocation?,
-                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider()) {
+                schedulerProvider: SchedulerProvider = DefaultSchedulerProvider(),
+                logger: Logger = LoggerDependencyRegistry.instance.logger) {
         self.listener = listener
         locationStateStateMachine = StateMachine(
             schedulerProvider: schedulerProvider,
             initialState: LocationState(pickup: initialPickup,
                                         dropoff: initialDropoff,
-                                        changedByUser: false)
+                                        changedByUser: false),
+            logger: logger
         )
 
         locationStateStateMachine.state()

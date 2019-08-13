@@ -163,11 +163,11 @@ PODS:
   - Turf (0.3.0)
 
 DEPENDENCIES:
-  - RideOsCommon (from `../RideOsCommon`)
-  - RideOsDriver (from `../RideOsDriver`)
-  - RideOsGoogleMaps (from `../RideOsGoogleMaps`)
-  - RideOsHereMaps (from `../RideOsHereMaps`)
-  - RideOsRider (from `../RideOsRider`)
+  - RideOsCommon (from `../`)
+  - RideOsDriver (from `../`)
+  - RideOsGoogleMaps (from `../`)
+  - RideOsHereMaps (from `../`)
+  - RideOsRider (from `../`)
   - RxTest (= 4.4.1)
   - SwiftFormat/CLI (= 0.40)
   - SwiftLint (= 0.32.0)
@@ -221,15 +221,15 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   RideOsCommon:
-    :path: "../RideOsCommon"
+    :path: "../"
   RideOsDriver:
-    :path: "../RideOsDriver"
+    :path: "../"
   RideOsGoogleMaps:
-    :path: "../RideOsGoogleMaps"
+    :path: "../"
   RideOsHereMaps:
-    :path: "../RideOsHereMaps"
+    :path: "../"
   RideOsRider:
-    :path: "../RideOsRider"
+    :path: "../"
 
 SPEC CHECKSUMS:
   "!ProtoCompiler": 3e9dc8340c8f1bbab40aa0f5acb965a4be02f849
@@ -261,11 +261,11 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   RideOsApi: dd1cb844305f225557e55b28913fc6d416047fc2
-  RideOsCommon: 2a677e742a86ac213b09b0e962077c47c4c4d6a2
-  RideOsDriver: 3ce4db76afd36f39814605809a0e2a6816535846
-  RideOsGoogleMaps: 7e1803e948ab2c1dd0fc03a3112d30148cfbe6b6
-  RideOsHereMaps: 2e94b45791c47096109230ea6f8a4addd63bd46f
-  RideOsRider: c08d09839a9f04433b2b43c7d4eee989e564f2ed
+  RideOsCommon: 1111b0444d0563b26683d622f998b01f98785da0
+  RideOsDriver: e67b186da85eec141a1cbd13baf3de4378f4a55f
+  RideOsGoogleMaps: 4f86f49c21fadf2823becfa1b583152286e7329e
+  RideOsHereMaps: 0eb2d919aa563596f09a5d8bca4e250f5b35f098
+  RideOsRider: 7d17a745cf82295e55af1ab2a13f8433b7e93b23
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
@@ -282,6 +282,6 @@ SPEC CHECKSUMS:
   SwiftSimplify: 374ead1c360c6e236539543d6ce5b3abda011080
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: fda30ded89f2c231ebd35572b841bd0203e36849
+PODFILE CHECKSUM: ffddc742a1753971fe4badcd181326d785f40a66
 
 COCOAPODS: 1.7.5

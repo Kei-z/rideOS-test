@@ -1,18 +1,19 @@
 Pod::Spec.new do |s|
   s.name             = 'RideOsHereMaps'
   s.version          = '0.1.0'
-  s.summary          = 'Implementation of RideOS''s maps abstractions that uses HERE Maps'
+  s.summary          = 'Implementation of rideOS maps protocols that uses HERE Maps'
 
   s.description      = <<-DESC
-  Implementation of RideOS's maps abstractions that uses HERE Maps
+  Implementation of rideOS maps protocols that uses HERE Maps.
                        DESC
 
   s.homepage         = 'https://github.com/rideOS/rideos-sdk-ios'
   s.license          = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author           = { 'rideOS' => 'support@rideos.ai' }
-  s.source           = { :git => 'git@github.com:rideOS/rideos-sdk-ios.git', :tag => '0.1.0' }
+  s.source           = { :git => 'https://github.com/rideOS/rideos-sdk-ios.git', :tag => '0.1.0' }
 
   s.ios.deployment_target = '11.0'
+  s.swift_version = '5.0'
     
   s.dependency 'RideOsCommon'
   s.dependency 'RxSwift', '~> 4.4'

@@ -108,7 +108,7 @@ PODS:
     - Polyline (~> 4.2)
     - Protobuf (~> 3.9)
     - RideOsApi (~> 0.1)
-    - RideOsCommon
+    - RideOsCommon (~> 0.1)
     - RxCocoa (~> 4.4)
     - RxOptional (~> 3.6)
     - RxSwift (~> 4.4)
@@ -117,15 +117,15 @@ PODS:
   - RideOsGoogleMaps (0.1.0):
     - GoogleMaps (~> 3.2)
     - GooglePlaces (~> 3.2)
-    - RideOsCommon
+    - RideOsCommon (~> 0.1)
     - RxSwift (~> 4.4)
   - RideOsHereMaps (0.1.0):
     - HEREMaps (~> 3.11)
-    - RideOsCommon
+    - RideOsCommon (~> 0.1)
     - RxSwift (~> 4.4)
   - RideOsRider (0.1.0):
     - RideOsApi (~> 0.1)
-    - RideOsCommon
+    - RideOsCommon (~> 0.1)
     - RxCocoa (~> 4.4)
     - RxOptional (~> 3.6)
     - RxSwift (~> 4.4)
@@ -163,11 +163,11 @@ PODS:
   - Turf (0.3.0)
 
 DEPENDENCIES:
-  - RideOsCommon
-  - RideOsDriver
-  - RideOsGoogleMaps
-  - RideOsHereMaps
-  - RideOsRider
+  - RideOsCommon (from `../`)
+  - RideOsDriver (from `../`)
+  - RideOsGoogleMaps (from `../`)
+  - RideOsHereMaps (from `../`)
+  - RideOsRider (from `../`)
   - RxTest (= 4.4.1)
   - SwiftFormat/CLI (= 0.40)
   - SwiftLint (= 0.32.0)
@@ -203,11 +203,6 @@ SPEC REPOS:
     - Protobuf
     - ReachabilitySwift
     - RideOsApi
-    - RideOsCommon
-    - RideOsDriver
-    - RideOsGoogleMaps
-    - RideOsHereMaps
-    - RideOsRider
     - RxAtomic
     - RxCocoa
     - RxOptional
@@ -223,6 +218,18 @@ SPEC REPOS:
     - SwiftLint
     - SwiftSimplify
     - Turf
+
+EXTERNAL SOURCES:
+  RideOsCommon:
+    :path: "../"
+  RideOsDriver:
+    :path: "../"
+  RideOsGoogleMaps:
+    :path: "../"
+  RideOsHereMaps:
+    :path: "../"
+  RideOsRider:
+    :path: "../"
 
 SPEC CHECKSUMS:
   "!ProtoCompiler": 3e9dc8340c8f1bbab40aa0f5acb965a4be02f849
@@ -255,10 +262,10 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   RideOsApi: dd1cb844305f225557e55b28913fc6d416047fc2
   RideOsCommon: 46b6283a117e677f95be4e19bed8c1c1f30751e3
-  RideOsDriver: 255c7c73ac0780efae70beded0162b9ddca34f8e
-  RideOsGoogleMaps: 3f138eb95175bf0d4a9bb56bbe19cb627b5bfcad
-  RideOsHereMaps: 6f5aa6127237dfd49056fba35da8bbadf23a4f0a
-  RideOsRider: 0014850cc6e6152d4526babb5f69e6cea45cad41
+  RideOsDriver: 21169a9c0a25e7d519ccb323d22d7b6196c5f680
+  RideOsGoogleMaps: d38316564e069ca979d849d3d0fa66327993e277
+  RideOsHereMaps: f6d7650de9f40e6505fea880ce1cf120ecc0495b
+  RideOsRider: b5a622e89c18b7e422d49fc68cde4976fa746210
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
@@ -275,6 +282,6 @@ SPEC CHECKSUMS:
   SwiftSimplify: 374ead1c360c6e236539543d6ce5b3abda011080
   Turf: c6bdf62d6a70c647874f295dd1cf4eefc0c3e9e6
 
-PODFILE CHECKSUM: cb2664aac02403b7ab3587662f513cc0e5ab6ee4
+PODFILE CHECKSUM: ffddc742a1753971fe4badcd181326d785f40a66
 
 COCOAPODS: 1.7.5

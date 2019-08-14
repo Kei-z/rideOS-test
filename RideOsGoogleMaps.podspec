@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   # are also static frameworks
   s.static_framework = true
   
-  s.dependency 'RideOsCommon' '~> 0.1'
+  s.dependency 'RideOsCommon', '~> 0.1'
   s.dependency 'RxSwift', '~> 4.4'
   s.dependency 'GoogleMaps', '~> 3.2'
   s.dependency 'GooglePlaces', '~> 3.2'

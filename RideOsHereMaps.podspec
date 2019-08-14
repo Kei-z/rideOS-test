@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   s.swift_version = '5.0'
     
-  s.dependency 'RideOsCommon' '~> 0.1'
+  s.dependency 'RideOsCommon', '~> 0.1'
   s.dependency 'RxSwift', '~> 4.4'
   s.dependency 'HEREMaps', '~> 3.11'
   

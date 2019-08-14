@@ -88,11 +88,11 @@ PODS:
   - RideOsGoogleMaps (0.1.0):
     - GoogleMaps (~> 3.2)
     - GooglePlaces (~> 3.2)
-    - RideOsCommon
+    - RideOsCommon (~> 0.1)
     - RxSwift (~> 4.4)
   - RideOsRider (0.1.0):
     - RideOsApi (~> 0.1)
-    - RideOsCommon
+    - RideOsCommon (~> 0.1)
     - RxCocoa (~> 4.4)
     - RxOptional (~> 3.6)
     - RxSwift (~> 4.4)
@@ -186,8 +186,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   RideOsApi: dd1cb844305f225557e55b28913fc6d416047fc2
   RideOsCommon: 46b6283a117e677f95be4e19bed8c1c1f30751e3
-  RideOsGoogleMaps: 3f138eb95175bf0d4a9bb56bbe19cb627b5bfcad
-  RideOsRider: 0014850cc6e6152d4526babb5f69e6cea45cad41
+  RideOsGoogleMaps: d38316564e069ca979d849d3d0fa66327993e277
+  RideOsRider: b5a622e89c18b7e422d49fc68cde4976fa746210
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb

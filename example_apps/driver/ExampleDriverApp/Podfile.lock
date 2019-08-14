@@ -107,7 +107,7 @@ PODS:
     - Polyline (~> 4.2)
     - Protobuf (~> 3.9)
     - RideOsApi (~> 0.1)
-    - RideOsCommon
+    - RideOsCommon (~> 0.1)
     - RxCocoa (~> 4.4)
     - RxOptional (~> 3.6)
     - RxSwift (~> 4.4)
@@ -116,7 +116,7 @@ PODS:
   - RideOsGoogleMaps (0.1.0):
     - GoogleMaps (~> 3.2)
     - GooglePlaces (~> 3.2)
-    - RideOsCommon
+    - RideOsCommon (~> 0.1)
     - RxSwift (~> 4.4)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
@@ -224,8 +224,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   RideOsApi: dd1cb844305f225557e55b28913fc6d416047fc2
   RideOsCommon: 46b6283a117e677f95be4e19bed8c1c1f30751e3
-  RideOsDriver: 255c7c73ac0780efae70beded0162b9ddca34f8e
-  RideOsGoogleMaps: 3f138eb95175bf0d4a9bb56bbe19cb627b5bfcad
+  RideOsDriver: 21169a9c0a25e7d519ccb323d22d7b6196c5f680
+  RideOsGoogleMaps: d38316564e069ca979d849d3d0fa66327993e277
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb

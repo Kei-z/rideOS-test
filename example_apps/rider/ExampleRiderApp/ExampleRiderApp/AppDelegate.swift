@@ -4,15 +4,24 @@ import RideOsCommon
 import RideOsGoogleMaps
 import RideOsRider
 
-// Add your Google API key here
-private let googleApiKey = ""
-
-
-// Add your user database ID here
-private let userDatabaseId = ""
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    private static var googleApiKey: String {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "GoogleAPIKey") as? String else {
+            fatalError("GoogleAPIKey must be set in Info.plist")
+        }
+        return apiKey
+    }
+
+    private static var userDatabaseId: String {
+        guard let path = Bundle.main.path(forResource: "Auth0", ofType: "plist"),
+            let values = NSDictionary(contentsOfFile: path) as? [String: Any],
+            let userDatabaseId = values["UserDatabaseId"] as? String else {
+                fatalError("UserDatabaseId must be set in Auth0.plist")
+        }
+        return userDatabaseId
+    }
+
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,8 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("No window")
         }
 
-        RiderDependencyRegistry.create(riderDependencyFactory: DefaultRiderDependencyFactory(),
-                                       mapsDependencyFactory: GoogleMapsDependencyFactory(googleApiKey: googleApiKey))
+        RiderDependencyRegistry.create(
+            riderDependencyFactory: DefaultRiderDependencyFactory(),
+            mapsDependencyFactory: GoogleMapsDependencyFactory(googleApiKey: AppDelegate.googleApiKey)
+        )
 
         window.rootViewController = RiderViewController(
             developerSettingsFormViewControllerFactory: { userStorageReader, userStorageWriter in
@@ -32,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     fleetSelectionViewModel: DefaultFleetSelectionViewModel()
                 )
             },
-            loginMethods: [.auth0UsernamePassword(userDatabaseId: userDatabaseId)]
+            loginMethods: [.auth0UsernamePassword(userDatabaseId: AppDelegate.userDatabaseId)]
         )
 
         window.makeKeyAndVisible()

@@ -2,6 +2,10 @@
 
 The easiest way to get started with the RideOsDriver SDK is to build off of this example app. Here's how to get up and running.
 
+## Alpha
+
+Note that the `RideOsDriver` SDK, which provides the bulk of the functionality for this example app, is currently in alpha. We also strongly recommend running the app on a phone, not in the iOS Simulator.
+
 ## Install CocoaPods
 
 If you don't already have CocoaPods installed, follow the instructions on their [homepage](https://cocoapods.org/) to install it. Once it is installed, run `pod install` from within the `example_apps/driver/ExampleDriverApp` directory and then open the generated `ExampleDriverApp.xcworkspace`.

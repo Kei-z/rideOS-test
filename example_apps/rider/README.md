@@ -4,7 +4,7 @@ The easiest way to get started with the RideOsRider SDK is to build off of this 
 
 ## Install CocoaPods
 
-If you don't already have CocoaPods installed, follow the instructions on their [homepage](https://cocoapods.org/) to install it. Once it is installed, run `pod install` from within the `example_apps/rider/ExampleDriverApp` directory and then open the generated `ExampleRiderApp.xcworkspace`.
+If you don't already have CocoaPods installed, follow the instructions on their [homepage](https://cocoapods.org/) to install it. Once it is installed, run `pod install` from within the `example_apps/rider/ExampleRiderApp` directory and then open the generated `ExampleRiderApp.xcworkspace`.
 
 ## User authentication
 

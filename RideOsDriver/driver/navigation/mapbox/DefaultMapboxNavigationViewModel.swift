@@ -26,6 +26,7 @@ public class DefaultMapboxNavigationViewModel: MapboxNavigationViewModel {
     private let schedulerProvider: SchedulerProvider
     private let directionsToDisplay = ReplaySubject<MapboxDirections.Route>.create(bufferSize: 1)
     private let originDestinationToRoute = PublishSubject<(CLLocationCoordinate2D, CLLocationCoordinate2D)>()
+    private let logger: Logger
     private let disposeBag = DisposeBag()
 
     public init(deviceLocator: DeviceLocator = CoreLocationDeviceLocator(),
@@ -35,6 +36,7 @@ public class DefaultMapboxNavigationViewModel: MapboxNavigationViewModel {
         self.deviceLocator = deviceLocator
         self.directionsInteractor = directionsInteractor
         self.schedulerProvider = schedulerProvider
+        self.logger = logger
 
         originDestinationToRoute
             .observeOn(schedulerProvider.computation())
@@ -63,7 +65,16 @@ public class DefaultMapboxNavigationViewModel: MapboxNavigationViewModel {
     }
 
     public func route(to destination: CLLocationCoordinate2D) {
-        deviceLocator.lastKnownLocation.zip(with: Single.just(destination)) { ($0.coordinate, $1) }
+        deviceLocator.observeCurrentLocation()
+            .first()
+            .zip(with: Single.just(destination)) { [logger] origin, destinationCoordinate in
+                guard let origin = origin else {
+                    logger.logError("Observe current location completed unexpectedly without emitting location.")
+                    return (kCLLocationCoordinate2DInvalid, destinationCoordinate)
+                }
+
+                return (origin.coordinate, destinationCoordinate)
+            }
             .subscribe(onNext: { [originDestinationToRoute] in originDestinationToRoute.onNext($0) })
             .disposed(by: disposeBag)
     }

@@ -19,7 +19,6 @@ import RxSwift
 
 public protocol DeviceLocator {
     func observeCurrentLocation() -> Observable<CLLocation>
-    var lastKnownLocation: Single<CLLocation> { get }
 }
 
 public enum DeviceLocatorError: Error {

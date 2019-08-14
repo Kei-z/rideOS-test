@@ -45,14 +45,4 @@ public class SimulatedDeviceLocator: NSObject, DeviceLocator {
         let intialLocation = initialLocationSource.observeCurrentLocation().takeUntil(validSimulatedLocationSubject)
         return Observable.concat([intialLocation, validSimulatedLocationSubject])
     }
-
-    public var lastKnownLocation: Single<CLLocation> {
-        let simulatedLocation = try? simulatedLocationSubject.value()
-
-        if let simulatedLocation = simulatedLocation, CLLocationCoordinate2DIsValid(simulatedLocation.coordinate) {
-            return Single.just(simulatedLocation)
-        }
-
-        return initialLocationSource.lastKnownLocation
-    }
 }

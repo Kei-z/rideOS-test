@@ -40,18 +40,6 @@ public class CoreLocationDeviceLocator: NSObject, DeviceLocator, CLLocationManag
         return locationSubject
     }
 
-    public var lastKnownLocation: Single<CLLocation> {
-        return Single.create { [locationManager] single in
-            if let lastLocation = locationManager.location {
-                single(.success(lastLocation))
-            } else {
-                single(.error(DeviceLocatorError.lastLocationUnavailable))
-            }
-
-            return Disposables.create()
-        }
-    }
-
     public func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Force unwrap without checking since locations is guaranteed to always have at least 1 location:
         // https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/1423615-locationmanager

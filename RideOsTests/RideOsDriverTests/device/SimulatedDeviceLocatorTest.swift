@@ -23,17 +23,6 @@ class SimulatedDeviceLocatorTest: ReactiveTestCase {
         assertNil(deviceLocatorUnderTest, after: { self.deviceLocatorUnderTest = nil })
     }
 
-    func testDeviceLocatorStartsWithLastKnownLocationFromInitialSourceBeforeReceivingUpdate() {
-        lastKnownLocationRecorder = scheduler.record(deviceLocatorUnderTest.lastKnownLocation)
-
-        scheduler.start()
-
-        XCTAssertEqual(lastKnownLocationRecorder.events, [
-            next(0, SimulatedDeviceLocatorTest.initialLocation),
-            completed(0),
-        ])
-    }
-
     func testDeviceLocatorStartsWithObservedLocationFromInitialSourceBeforeReceivingUpdate() {
         observeLocationRecorder = scheduler.record(deviceLocatorUnderTest.observeCurrentLocation())
 
@@ -41,19 +30,6 @@ class SimulatedDeviceLocatorTest: ReactiveTestCase {
 
         XCTAssertEqual(observeLocationRecorder.events, [
             next(0, SimulatedDeviceLocatorTest.initialLocation),
-        ])
-    }
-
-    func testDeviceLocatorProvidesSimulatedLastKnownLocationAfterUpdate() {
-        deviceLocatorUnderTest.updateSimulatedLocation(SimulatedDeviceLocatorTest.simulatedLocation)
-
-        lastKnownLocationRecorder = scheduler.record(deviceLocatorUnderTest.lastKnownLocation)
-
-        scheduler.start()
-
-        XCTAssertEqual(lastKnownLocationRecorder.events, [
-            next(0, SimulatedDeviceLocatorTest.simulatedLocation),
-            completed(0),
         ])
     }
 

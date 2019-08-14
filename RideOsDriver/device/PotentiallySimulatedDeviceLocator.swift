@@ -38,12 +38,4 @@ public class PotentiallySimulatedDeviceLocator: DeviceLocator {
 
         return whenNotInSimlatorLocator.observeCurrentLocation()
     }
-
-    public var lastKnownLocation: Single<CLLocation> {
-        if userStorageReader.get(DriverDeveloperSettingsKeys.enableSimulatedNavigation) ?? false {
-            return whenInSimlatorLocator.lastKnownLocation
-        }
-
-        return whenNotInSimlatorLocator.lastKnownLocation
-    }
 }

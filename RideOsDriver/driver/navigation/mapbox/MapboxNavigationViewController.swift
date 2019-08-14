@@ -60,6 +60,23 @@ public class MapboxNavigationViewController: BackgroundMapViewController, Vehicl
                 } else {
                     var options: NavigationOptions?
 
+                    // When running in the simulator, default to not simulating location as opposed to the normal
+                    // default behavior of simulating navigation during a poor GPS signal. This is done to prevent
+                    // confusion when developers run the app in the simulator and expect location simulation to
+                    // explicitly be turned on or off, instead of depending on Mapbox's criteria for determining when
+                    // there is poor GPS (which might not make sense in the simulator setting). Note that developers
+                    // can still choose to simulate location by providing a non-nil SimulatedDeviceLocator as an
+                    // init parameter, this check just changes the default behavior when no SimulatedDeviceLocator
+                    // is provided.
+                    //
+                    // We retain the normal default behavior when not running in the simulator to improve the real life
+                    // driver experience when the vehicle passes through areas with poor connectivity.
+                    #if targetEnvironment(simulator)
+                        let defaultNavigationService = MapboxNavigationService(route: mapboxRoute,
+                                                                               simulating: .never)
+                        options = NavigationOptions(navigationService: defaultNavigationService)
+                    #endif
+
                     if self.simulatedDeviceLocator != nil {
                         let simulatedNavigationService = MapboxNavigationService(route: mapboxRoute,
                                                                                  simulating: .always)

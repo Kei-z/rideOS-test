@@ -70,7 +70,11 @@ public class StateMachine<T> {
         stateTransitionSubject.onNext(stateTransition)
     }
 
-    public func state() -> Observable<T> {
+    public func observeCurrentState() -> Observable<T> {
         return stateSubject
+    }
+
+    public func getCurrentState() throws -> T {
+        return try stateSubject.value()
     }
 }

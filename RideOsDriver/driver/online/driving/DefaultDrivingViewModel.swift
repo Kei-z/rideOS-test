@@ -38,7 +38,7 @@ public class DefaultDrivingViewModel: DrivingViewModel {
     }
 
     public var drivingViewState: Observable<DrivingViewState> {
-        return stateMachine.state()
+        return stateMachine.observeCurrentState()
             .distinctUntilChanged()
             .map { [destination] in DrivingViewState(drivingStep: $0, destination: destination) }
     }

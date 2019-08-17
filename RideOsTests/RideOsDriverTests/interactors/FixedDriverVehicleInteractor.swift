@@ -8,11 +8,17 @@ import RxSwift
 public class FixedDriverVehicleInteractor: MethodCallRecorder, DriverVehicleInteractor {
     private let vehicleStatus: VehicleStatus
     private let vehicleState: RideHailCommonsVehicleState
+    private let markVehicleReadyError: Error?
+    private let markVehicleNotReadyError: Error?
 
     public init(vehicleStatus: VehicleStatus = .unregistered,
-                vehicleState: RideHailCommonsVehicleState = RideHailCommonsVehicleState()) {
+                vehicleState: RideHailCommonsVehicleState = RideHailCommonsVehicleState(),
+                markVehicleReadyError: Error? = nil,
+                markVehicleNotReadyError: Error? = nil) {
         self.vehicleStatus = vehicleStatus
         self.vehicleState = vehicleState
+        self.markVehicleReadyError = markVehicleReadyError
+        self.markVehicleNotReadyError = markVehicleNotReadyError
     }
 
     public func createVehicle(vehicleId _: String,
@@ -24,11 +30,19 @@ public class FixedDriverVehicleInteractor: MethodCallRecorder, DriverVehicleInte
 
     public func markVehicleReady(vehicleId _: String) -> Completable {
         recordMethodCall(#function)
+        if let markVehicleReadyError = markVehicleReadyError {
+            return Completable.error(markVehicleReadyError)
+        }
+        
         return Completable.empty()
     }
 
     public func markVehicleNotReady(vehicleId _: String) -> Completable {
         recordMethodCall(#function)
+        if let markVehicleNotReadyError = markVehicleNotReadyError {
+            return Completable.error(markVehicleNotReadyError)
+        }
+        
         return Completable.empty()
     }
 

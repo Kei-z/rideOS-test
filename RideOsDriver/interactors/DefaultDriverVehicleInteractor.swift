@@ -28,11 +28,11 @@ public class DefaultDriverVehicleInteractor: DriverVehicleInteractor {
     }
 
     public func markVehicleReady(vehicleId: String) -> Completable {
-        return setVehicleReadiness(vehicleId: vehicleId, readyForDispatch: true).ignoreElements()
+        return setVehicleReadiness(vehicleId: vehicleId, readyForDispatch: true)
     }
 
     public func markVehicleNotReady(vehicleId: String) -> Completable {
-        return setVehicleReadiness(vehicleId: vehicleId, readyForDispatch: false).ignoreElements()
+        return setVehicleReadiness(vehicleId: vehicleId, readyForDispatch: false)
     }
 
     public func finishSteps(vehicleId: String, taskId: String, stepIds: [String]) -> Completable {
@@ -111,28 +111,24 @@ public class DefaultDriverVehicleInteractor: DriverVehicleInteractor {
         }
     }
 
-    private func setVehicleReadiness(
-        vehicleId: String,
-        readyForDispatch: Bool
-    ) -> Observable<RideHailDriverSetReadinessResponse> {
-        return Observable<RideHailDriverSetReadinessResponse>.create { [driverVehicleService] observer in
+    private func setVehicleReadiness(vehicleId: String, readyForDispatch: Bool) -> Completable {
+        return Completable.create { [driverVehicleService] completable in
             let setReadinessRequest = RideHailDriverSetReadinessRequest()
             setReadinessRequest.vehicleId = vehicleId
             setReadinessRequest.readyForDispatch = readyForDispatch
 
             let call = driverVehicleService.rpcToSetReadiness(with: setReadinessRequest) { response, error in
                 guard error == nil else {
-                    observer.onError(error!)
+                    completable(.error(error!))
                     return
                 }
 
-                guard let response = response else {
-                    observer.onError(DriverVehicleInteractorError.invalidResponse)
+                guard response != nil else {
+                    completable(.error(DriverVehicleInteractorError.invalidResponse))
                     return
                 }
 
-                observer.onNext(response)
-                observer.onCompleted()
+                completable(.completed)
             }
 
             call.start()

@@ -39,14 +39,14 @@ public class DefaultMainViewModel: MainViewModel {
                                     logger: logger)
         startPollingForCurrentTask(passengerId: userStorageReader.userId)
 
-        stateMachine.state()
+        stateMachine.observeCurrentState()
             .distinctUntilChanged()
             .subscribe(onNext: { [logger] in logger.logDebug("Transitioning to state: \($0.json)") })
             .disposed(by: disposeBag)
     }
 
     public func getMainViewState() -> Observable<MainViewState> {
-        return stateMachine.state()
+        return stateMachine.observeCurrentState()
     }
 
     public func startLocationSearch() {

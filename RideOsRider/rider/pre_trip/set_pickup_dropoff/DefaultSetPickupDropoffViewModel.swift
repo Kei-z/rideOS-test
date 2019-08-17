@@ -39,7 +39,7 @@ public class DefaultSetPickupDropoffViewModel: SetPickupDropoffViewModel {
             logger: logger
         )
 
-        locationStateStateMachine.state()
+        locationStateStateMachine.observeCurrentState()
             .observeOn(schedulerProvider.mainThread())
             .subscribe(onNext: { [unowned self] locationState in
                 if let (pickup, dropoff) = locationState.completedPickupDropoff() {
@@ -53,7 +53,7 @@ public class DefaultSetPickupDropoffViewModel: SetPickupDropoffViewModel {
 
     public func getDisplayState() -> Observable<SetPickupDropOffDisplayState> {
         return Observable
-            .combineLatest(stepSubject, locationStateStateMachine.state())
+            .combineLatest(stepSubject, locationStateStateMachine.observeCurrentState())
             .distinctUntilChanged { $0 == $1 }
             .map { step, locationState in
                 SetPickupDropOffDisplayState(step: step,

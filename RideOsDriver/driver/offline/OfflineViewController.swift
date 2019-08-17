@@ -23,14 +23,18 @@ public class OfflineViewController: BackgroundMapViewController {
     private let disposeBag = DisposeBag()
     private let offlineDialogView = OfflineDialogView()
     private let mapStateProvider = FollowCurrentLocationMapStateProvider(icon: DrawableMarkerIcons.car())
+    private let viewModel: OfflineViewModel
     private let schedulerProvider: SchedulerProvider
 
     public init(goOnlineListener: GoOnlineListener,
                 mapViewController: MapViewController,
+                viewModel: OfflineViewModel = DefaultOfflineViewModel(),
                 schedulerProvider: SchedulerProvider = DefaultSchedulerProvider()) {
-        self.schedulerProvider = schedulerProvider
-        super.init(mapViewController: mapViewController)
         self.goOnlineListener = goOnlineListener
+        self.schedulerProvider = schedulerProvider
+        self.viewModel = viewModel
+
+        super.init(mapViewController: mapViewController)
     }
 
     required init?(coder _: NSCoder) {
@@ -40,10 +44,34 @@ public class OfflineViewController: BackgroundMapViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
+        offlineDialogView.set(isAnimatingProgress: false)
+
         offlineDialogView.goOnlineTapEvents
             .observeOn(schedulerProvider.mainThread())
-            .subscribe(onNext: { [unowned self] _ in self.goOnlineListener?.goOnline() })
+            .subscribe(onNext: { [viewModel] _ in viewModel.goOnline() })
             .disposed(by: disposeBag)
+
+        viewModel.offlineViewState
+            .observeOn(schedulerProvider.mainThread())
+            .subscribe(onNext: { [unowned self] currentState in
+                switch currentState {
+                case .offline:
+                    self.offlineDialogView.set(isAnimatingProgress: false)
+                    self.offlineDialogView.isGoOnlineButtonEnabled = true
+                case .goingOnline:
+                    self.offlineDialogView.set(isAnimatingProgress: true)
+                    self.offlineDialogView.isGoOnlineButtonEnabled = false
+                case .online:
+                    self.goOnlineListener?.didGoOnline()
+                case .failedToGoOnline:
+                    self.offlineDialogView.set(isAnimatingProgress: false)
+                    self.offlineDialogView.isGoOnlineButtonEnabled = true
+                    self.present(self.goingOnlineFailedAlertController(),
+                                 animated: true,
+                                 completion: nil)
+                }
+
+            }).disposed(by: disposeBag)
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -58,5 +86,29 @@ public class OfflineViewController: BackgroundMapViewController {
         super.viewWillDisappear(animated)
 
         dismissBottomDialogStackView(offlineDialogView)
+    }
+}
+
+extension OfflineViewController {
+    private func goingOnlineFailedAlertController() -> UIAlertController {
+        let alertController = UIAlertController(
+            title: RideOsDriverResourceLoader.instance.getString(
+                "ai.rideos.driver.offline.go-online-failed-alert.title"
+            ),
+            message: RideOsDriverResourceLoader.instance.getString(
+                "ai.rideos.driver.offline.go-online-failed-alert.message"
+            ),
+            preferredStyle: UIAlertController.Style.alert
+        )
+
+        alertController.addAction(
+            UIAlertAction(
+                title: RideOsDriverResourceLoader.instance.getString(
+                    "ai.rideos.driver.offline.go-online-failed-alert.action.ok"
+                ),
+                style: UIAlertAction.Style.default
+            )
+        )
+        return alertController
     }
 }

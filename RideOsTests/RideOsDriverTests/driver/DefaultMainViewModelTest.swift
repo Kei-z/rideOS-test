@@ -56,7 +56,7 @@ class DefaultMainViewModelTest: ReactiveTestCase {
     func testViewModelCanGoOnlineWhenOffline() {
         setUp(vehicleStatus: .notReady)
         
-        scheduler.scheduleAt(0) { self.viewModelUnderTest.goOnline() }
+        scheduler.scheduleAt(0) { self.viewModelUnderTest.didGoOnline() }
         
         scheduler.advanceTo(2)
         
@@ -69,8 +69,8 @@ class DefaultMainViewModelTest: ReactiveTestCase {
     func testViewModelCanGoOfflineWhenOnline() {
         setUp(vehicleStatus: .notReady)
         
-        scheduler.scheduleAt(0) { self.viewModelUnderTest.goOnline() }
-        scheduler.scheduleAt(1) { self.viewModelUnderTest.goOffline() }
+        scheduler.scheduleAt(0) { self.viewModelUnderTest.didGoOnline() }
+        scheduler.scheduleAt(1) { self.viewModelUnderTest.didGoOffline() }
         
         scheduler.advanceTo(3)
         

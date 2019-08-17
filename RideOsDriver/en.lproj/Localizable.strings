@@ -40,8 +40,11 @@
 /* Vehicle unregistered view header label text */
 "ai.rideos.driver.vehicle-unregistered.header-text" = "You must complete registration in order to accept rides.";
 
+/* Offline view progress label text */
+"ai.rideos.driver.offline.progress-text" = "Going online...";
+
 /* Offline view header label text */
-"ai.rideos.driver.offline.header-text" = "Currently Offline";
+"ai.rideos.driver.offline.header-text" = "Not Accepting Rides";
 
 /* Drive to dropoff title */
 "ai.rideos.driver.online.drive-to-dropoff.title" = "Drive to Dropoff";
@@ -53,7 +56,7 @@
 "ai.rideos.driver.vehicle-unregistered.register-vehicle-button.title" = "Register Vehicle";
 
 /* Go Offline Button title */
-"ai.rideos.driver.online.go-offline-button.title" = "Go Offline";
+"ai.rideos.driver.online.idle.go-offline-button.title" = "Go Offline";
 
 /* Go Online Button title */
 "ai.rideos.driver.offline.go-online-button.title" = "Go Online";
@@ -64,8 +67,30 @@
 /* Start navigation button title */
 "ai.rideos.driver.online.start-navigation-button.title" = "Start Navigation";
 
-/* Online view header label text */
-"ai.rideos.driver.online.idle-header-title" = "Waiting for Assignment";
+/* Online idle going offline progress text */
+"ai.rideos.driver.online.idle.go-offline-progress-text" = "Going offline...";
+
+/* Online idle view header label text */
+"ai.rideos.driver.online.idle.header-title" = "Waiting for a Ride Request";
 
 /* Number of passengers to pickup string format */
 "ai.rideos.driver.online.waiting-for-pickup.title-format" = "Pickup %d passenger(s)";
+
+/* Go Online failure alert title */
+"ai.rideos.driver.offline.go-online-failed-alert.title" = "Going Online Failed";
+
+/* Go Online failure alert message */
+"ai.rideos.driver.offline.go-online-failed-alert.message" = "Unable to go online at this time. Please, try again.";
+
+/* Go Online failure alert OK action */
+"ai.rideos.driver.offline.go-online-failed-alert.action.ok" = "OK";
+
+/* Go Offline failure alert title */
+"ai.rideos.driver.online.idle.go-offline-failed-alert.title" = "Going Offline Failed";
+
+/* Go Offline failure alert message */
+"ai.rideos.driver.online.idle.go-offline-failed-alert.message" = "Unable to go offline at this time. Please, try again.";
+
+/* Go Offline failure alert OK action */
+"ai.rideos.driver.online.idle.go-offline-failed-alert.action.ok" = "OK";
+

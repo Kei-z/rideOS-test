@@ -73,9 +73,9 @@ class DefaultOnlineViewModelTest: ReactiveTestCase {
     func testGoOfflineCallsListener() {
         setUp(withPlan: VehiclePlan(waypoints: []))
 
-        viewModelUnderTest.goOffline()
+        viewModelUnderTest.didGoOffline()
 
-        XCTAssertEqual(recordingGoOfflineListener.methodCalls, ["goOffline()"])
+        XCTAssertEqual(recordingGoOfflineListener.methodCalls, ["didGoOffline()"])
     }
 
     func testGettingPlanWithPickupStepTransitionsToDriveToPickup() {

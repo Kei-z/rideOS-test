@@ -49,7 +49,7 @@ public class DefaultMainViewModel: MainViewModel {
                 }
             })
 
-        return stateMachine.state()
+        return stateMachine.observeCurrentState()
             .filter { $0 != .unknown }
             .do(onDispose: { getStatusDisposable.dispose() })
     }
@@ -58,15 +58,14 @@ public class DefaultMainViewModel: MainViewModel {
 // MARK: GoOnlineListener
 
 extension DefaultMainViewModel: GoOnlineListener {
-    public func goOnline() {
-        stateMachine.asyncTransition { [driverVehicleInteractor, userStorageReader] currentState in
+    public func didGoOnline() {
+        stateMachine.transition { currentState in
             guard case .offline = currentState else {
                 throw InvalidStateTransitionError.invalidStateTransition(
                     "\(#function) called during invalid state: \(currentState)")
             }
 
-            return driverVehicleInteractor.markVehicleReady(vehicleId: userStorageReader.userId)
-                .andThen(Single.just(MainViewState.online))
+            return MainViewState.online
         }
     }
 }
@@ -74,15 +73,14 @@ extension DefaultMainViewModel: GoOnlineListener {
 // MARK: GoOfflineListener
 
 extension DefaultMainViewModel: GoOfflineListener {
-    public func goOffline() {
-        stateMachine.asyncTransition { [driverVehicleInteractor, userStorageReader] currentState in
+    public func didGoOffline() {
+        stateMachine.transition { currentState in
             guard case .online = currentState else {
                 throw InvalidStateTransitionError.invalidStateTransition(
                     "\(#function) called during invalid state: \(currentState)")
             }
 
-            return driverVehicleInteractor.markVehicleNotReady(vehicleId: userStorageReader.userId)
-                .andThen(Single.just(MainViewState.offline))
+            return MainViewState.offline
         }
     }
 }
@@ -91,12 +89,13 @@ extension DefaultMainViewModel: GoOfflineListener {
 
 extension DefaultMainViewModel: RegisterVehicleFinishedListener {
     public func vehicleRegistrationFinished() {
-        stateMachine.asyncTransition { currentState in
+        stateMachine.transition { currentState in
             guard case .vehicleUnregistered = currentState else {
                 throw InvalidStateTransitionError.invalidStateTransition(
                     "\(#function) called during invalid state: \(currentState)")
             }
-            return Single.just(MainViewState.offline)
+
+            return MainViewState.offline
         }
     }
 }

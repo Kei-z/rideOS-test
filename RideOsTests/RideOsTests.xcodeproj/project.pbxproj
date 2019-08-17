@@ -10,6 +10,8 @@
 		06672DB09ACE16BA9A43ACCC /* Pods_RideOsGoogleMapsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03289CC424A0BACE6E276C50 /* Pods_RideOsGoogleMapsTests.framework */; };
 		1E40CA94B3857A34A42C79E9 /* Pods_RideOsDriverTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1983E2CAF92CBE24BC7688 /* Pods_RideOsDriverTests.framework */; };
 		3E9764443623DDA43DBBAAD0 /* Pods_RideOsTestHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933C0298345E7412A16D47F2 /* Pods_RideOsTestHelpers.framework */; };
+		560712D4230384B50003CFF3 /* DefaultOfflineViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560712D3230384B50003CFF3 /* DefaultOfflineViewModelTest.swift */; };
+		56850A39230623820084FE92 /* DefaultIdleViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56850A38230623820084FE92 /* DefaultIdleViewModelTest.swift */; };
 		5685792422F8EF8800D808A2 /* ReplayingTripStateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5685792322F8EF8800D808A2 /* ReplayingTripStateInteractor.swift */; };
 		56AF72FA22F396B500ACE78B /* RecordingVehicleStateSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AF72F922F396B400ACE78B /* RecordingVehicleStateSynchronizer.swift */; };
 		699EF21BFF7F53FAAE220659 /* Pods_RideOsCommonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE66AF8FB08CEA43D6FDDA1E /* Pods_RideOsCommonTests.framework */; };
@@ -87,6 +89,8 @@
 		2CDDD4F15E5697D0122785CB /* Pods-RideOsTestHelpers.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideOsTestHelpers.release.xcconfig"; path = "Target Support Files/Pods-RideOsTestHelpers/Pods-RideOsTestHelpers.release.xcconfig"; sourceTree = "<group>"; };
 		3FAE7E241B69DCE3BF486FD8 /* Pods-RideOsCommonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideOsCommonTests.release.xcconfig"; path = "Target Support Files/Pods-RideOsCommonTests/Pods-RideOsCommonTests.release.xcconfig"; sourceTree = "<group>"; };
 		5286238EA03B38B8E114750E /* Pods_RideOsRiderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideOsRiderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		560712D3230384B50003CFF3 /* DefaultOfflineViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultOfflineViewModelTest.swift; sourceTree = "<group>"; };
+		56850A38230623820084FE92 /* DefaultIdleViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIdleViewModelTest.swift; sourceTree = "<group>"; };
 		5685792322F8EF8800D808A2 /* ReplayingTripStateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplayingTripStateInteractor.swift; sourceTree = "<group>"; };
 		56AF72F922F396B400ACE78B /* RecordingVehicleStateSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingVehicleStateSynchronizer.swift; sourceTree = "<group>"; };
 		60845883D35BB272AC323669 /* Pods-RideOsTestHelpers.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideOsTestHelpers.debug.xcconfig"; path = "Target Support Files/Pods-RideOsTestHelpers/Pods-RideOsTestHelpers.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +249,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		560712D2230384950003CFF3 /* offline */ = {
+			isa = PBXGroup;
+			children = (
+				560712D3230384B50003CFF3 /* DefaultOfflineViewModelTest.swift */,
+			);
+			path = offline;
+			sourceTree = "<group>";
+		};
+		56850A37230622A80084FE92 /* idle */ = {
+			isa = PBXGroup;
+			children = (
+				56850A38230623820084FE92 /* DefaultIdleViewModelTest.swift */,
+			);
+			path = idle;
+			sourceTree = "<group>";
+		};
 		83184CA622EF5ED2000530DC /* RideOsDriverTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +291,7 @@
 				83184CAA22EF5ED2000530DC /* DefaultMainViewModelTest.swift */,
 				83184CAB22EF5ED2000530DC /* vehicle_unregistered */,
 				83184CAF22EF5ED2000530DC /* navigation */,
+				560712D2230384950003CFF3 /* offline */,
 				83184CB422EF5ED3000530DC /* online */,
 			);
 			path = driver;
@@ -315,6 +336,7 @@
 			children = (
 				83184CB522EF5ED3000530DC /* DefaultOnlineViewModelTest.swift */,
 				83184CB622EF5ED3000530DC /* driving */,
+				56850A37230622A80084FE92 /* idle */,
 			);
 			path = online;
 			sourceTree = "<group>";
@@ -1272,6 +1294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560712D4230384B50003CFF3 /* DefaultOfflineViewModelTest.swift in Sources */,
 				83184CD022EF5ED3000530DC /* SimulatedDeviceLocatorTest.swift in Sources */,
 				83184CCB22EF5ED3000530DC /* DefaultOnlineViewModelTest.swift in Sources */,
 				83184CD322EF5ED3000530DC /* FixedDriverPlanInteractor.swift in Sources */,
@@ -1285,6 +1308,7 @@
 				83184CCC22EF5ED3000530DC /* DefaultDrivePendingViewModelTest.swift in Sources */,
 				83184CC622EF5ED3000530DC /* DefaultVehicleUnregisteredViewModelTest.swift in Sources */,
 				56AF72FA22F396B500ACE78B /* RecordingVehicleStateSynchronizer.swift in Sources */,
+				56850A39230623820084FE92 /* DefaultIdleViewModelTest.swift in Sources */,
 				83184CCA22EF5ED3000530DC /* DefaultMapboxNavigationViewModelTest.swift in Sources */,
 				83184CCD22EF5ED3000530DC /* DefaultConfirmingArrivalViewModelTest.swift in Sources */,
 			);

@@ -40,7 +40,7 @@ public class DefaultVehicleUnregisteredViewModel: VehicleUnregisteredViewModel {
     }
 
     public func getVehicleUnregisteredViewState() -> Observable<VehicleUnregisteredViewState> {
-        return stateMachine.state()
+        return stateMachine.observeCurrentState()
     }
 }
 

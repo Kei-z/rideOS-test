@@ -43,7 +43,7 @@ public class DefaultPreTripViewModel: PreTripViewModel {
         self.listener = listener
         self.enableSeatCountSelection = enableSeatCountSelection
 
-        stateMachine.state()
+        stateMachine.observeCurrentState()
             .observeOn(schedulerProvider.computation())
             .distinctUntilChanged()
             .filter(DefaultPreTripViewModel.isStateConfirmed)
@@ -86,7 +86,7 @@ public class DefaultPreTripViewModel: PreTripViewModel {
     }
 
     public func getPreTripState() -> Observable<PreTripState> {
-        return stateMachine.state()
+        return stateMachine.observeCurrentState()
     }
 
     public func cancelTripRequest() {

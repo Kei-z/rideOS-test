@@ -3,7 +3,7 @@ import RideOsDriver
 import RideOsTestHelpers
 
 class RecordingGoOfflineListener: MethodCallRecorder, GoOfflineListener {
-    func goOffline() {
+    func didGoOffline() {
         recordMethodCall(#function)
     }
 }

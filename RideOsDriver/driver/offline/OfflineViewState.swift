@@ -15,6 +15,9 @@
 
 import Foundation
 
-public protocol GoOfflineListener: class {
-    func didGoOffline()
+public enum OfflineViewState: Equatable {
+    case offline
+    case goingOnline
+    case online
+    case failedToGoOnline
 }

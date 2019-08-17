@@ -128,7 +128,7 @@ public class DefaultOnlineViewModel: OnlineViewModel {
 // MARK: GoOfflineListener
 
 extension DefaultOnlineViewModel: GoOfflineListener {
-    public func goOffline() {
-        goOfflineListener?.goOffline()
+    public func didGoOffline() {
+        goOfflineListener?.didGoOffline()
     }
 }

@@ -16,5 +16,5 @@
 import Foundation
 
 public protocol GoOnlineListener: class {
-    func goOnline()
+    func didGoOnline()
 }

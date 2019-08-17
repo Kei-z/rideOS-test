@@ -14,7 +14,9 @@
 //
 
 import Foundation
+import RxSwift
 
-public protocol GoOfflineListener: class {
-    func didGoOffline()
+public protocol OfflineViewModel {
+    var offlineViewState: Observable<OfflineViewState> { get }
+    func goOnline()
 }
